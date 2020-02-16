@@ -1,0 +1,7 @@
+test_files/
+.vscode/
+.vs/
+*.exe
+*.json
+*.csv
+*.txt
