@@ -1,3 +1,4 @@
+//Ty Rozell
 //This is the header file for the linked list class
 
 #ifndef LINKEDLIST_H
@@ -51,7 +52,7 @@ template <typename TYPE>
 void LinkedList<TYPE>::append(TYPE* entry)
 {
     node<TYPE>* n = new node<TYPE>; //make new node
-    n->data = entry;   //point to entry
+    n->data = entry;                //point to entry
 
     if (listLength == 0) //if list is empty, set head and tail to first node
     {
@@ -75,21 +76,21 @@ void LinkedList<TYPE>::erase(int index)
     node<TYPE>* previous = head; //keeps track of previous node
     node<TYPE>* temp;            //placeholder node when deleting
 
-    if (index < listLength && index >= 0) //if in range
+    if (index < listLength && index >= 0)    //if in range
         for (int i=0; i < listLength; i++)   //search through list
         {
-            if (i > 0)   //if not first node, advance iterate
+            if (i > 0)        //if not first node, advance iterate
                 iterate = iterate->next;
 
             if (i == index)   //found node to delete
             {
                 //delete current node and reroute
                 temp = iterate;
-                if (index == 0)     //if first entry
+                if (index == 0)               //if first entry
                     head = head->next;
-                else if (i == listLength - 1)   //if last entry
+                else if (i == listLength - 1) //if last entry
                     tail = previous;
-                else   //its in the middle
+                else                          //its in the middle
                 {
                     iterate = iterate->next;
                     previous->next = iterate;
@@ -110,12 +111,12 @@ TYPE* LinkedList<TYPE>::get(int index)
 {
     node<TYPE>* iterate = head; //keeps track of current node
 
-    if (index < listLength && index >= 0) //if in range
+    if (index < listLength && index >= 0)  //if in range
         for (int i=0; i < listLength; i++) //search through list
             if (i == index)
-                return iterate->data;   //found
+                return iterate->data;      //found
             else
-                iterate = iterate->next; //advance iterate
+                iterate = iterate->next;   //advance iterate
 
     return blank; //couldn't find
 }
@@ -130,11 +131,11 @@ void LinkedList<TYPE>::clear()
     for (int i=0; i < listLength; i++) //go through list
     {
         iterate = iterate->next; //advance iterate
-        delete temp;   //delete node
+        delete temp;      //delete node
         temp = iterate;   //advance temp
     }
     
-    listLength = 0; //list is now empty
+    listLength = 0;       //list is now empty
 }
 
 //returns list length
